@@ -31,9 +31,5 @@ xcuserdata/
 timeline.xctimeline
 playground.xcworkspace
 
-## Pods
-Pods/
-Podfile.lock
-
 ## R.swift
 *.generated.swift

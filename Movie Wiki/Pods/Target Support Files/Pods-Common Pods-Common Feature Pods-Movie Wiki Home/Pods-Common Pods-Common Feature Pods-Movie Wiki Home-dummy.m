@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_Pods_Common_Pods_Common_Feature_Pods_Movie_Wiki_Home : NSObject
+@end
+@implementation PodsDummy_Pods_Common_Pods_Common_Feature_Pods_Movie_Wiki_Home
+@end
