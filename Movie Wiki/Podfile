@@ -41,6 +41,7 @@ abstract_target 'Common Pods' do
   
   target 'Movie Wiki Commons' do
     project 'Movie Wiki Commons/Movie Wiki Commons.xcodeproj'
+    swinject
   end
   
   target 'Movie Wiki Assets' do
