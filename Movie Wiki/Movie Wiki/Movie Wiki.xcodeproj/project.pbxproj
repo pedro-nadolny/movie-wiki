@@ -10,8 +10,10 @@
 		943D731634C57426EDAE785D /* Pods_Common_Pods_Movie_Wiki.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 207FF9A2ED2F9E2FB8DDB8CF /* Pods_Common_Pods_Movie_Wiki.framework */; };
 		EB07A711230BB08400FAD6DB /* Movie_Wiki_Home.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB07A710230BB08400FAD6DB /* Movie_Wiki_Home.framework */; };
 		EB07A712230BB08400FAD6DB /* Movie_Wiki_Home.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB07A710230BB08400FAD6DB /* Movie_Wiki_Home.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EB07A715230BB09100FAD6DB /* Movie_Wiki_Commons.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB07A714230BB09100FAD6DB /* Movie_Wiki_Commons.framework */; };
-		EB07A716230BB09100FAD6DB /* Movie_Wiki_Commons.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB07A714230BB09100FAD6DB /* Movie_Wiki_Commons.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EB07A71F230CE41100FAD6DB /* Movie_Wiki_Commons.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB07A714230BB09100FAD6DB /* Movie_Wiki_Commons.framework */; };
+		EB07A720230CE41100FAD6DB /* Movie_Wiki_Commons.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB07A714230BB09100FAD6DB /* Movie_Wiki_Commons.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EB07A724230CED6000FAD6DB /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB07A723230CED6000FAD6DB /* AppCoordinator.swift */; };
+		EB07A72A230CFCB300FAD6DB /* AppDendencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB07A729230CFCB300FAD6DB /* AppDendencies.swift */; };
 		EB7623E7230BA311006E7E4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7623E6230BA311006E7E4C /* AppDelegate.swift */; };
 		EB7623EE230BA312006E7E4C /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB7623ED230BA312006E7E4C /* AppIcon.xcassets */; };
 		EB7623F1230BA312006E7E4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB7623EF230BA312006E7E4C /* LaunchScreen.storyboard */; };
@@ -24,7 +26,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				EB07A716230BB09100FAD6DB /* Movie_Wiki_Commons.framework in Embed Frameworks */,
+				EB07A720230CE41100FAD6DB /* Movie_Wiki_Commons.framework in Embed Frameworks */,
 				EB07A712230BB08400FAD6DB /* Movie_Wiki_Home.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -40,6 +42,8 @@
 		D693D8C8A8DA55B1ED586054 /* Pods-Movie Wiki.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movie Wiki.debug.xcconfig"; path = "Target Support Files/Pods-Movie Wiki/Pods-Movie Wiki.debug.xcconfig"; sourceTree = "<group>"; };
 		EB07A710230BB08400FAD6DB /* Movie_Wiki_Home.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Movie_Wiki_Home.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB07A714230BB09100FAD6DB /* Movie_Wiki_Commons.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Movie_Wiki_Commons.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB07A723230CED6000FAD6DB /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		EB07A729230CFCB300FAD6DB /* AppDendencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDendencies.swift; sourceTree = "<group>"; };
 		EB7623E3230BA311006E7E4C /* Movie Wiki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movie Wiki.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB7623E6230BA311006E7E4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB7623ED230BA312006E7E4C /* AppIcon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIcon.xcassets; sourceTree = "<group>"; };
@@ -53,7 +57,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB07A711230BB08400FAD6DB /* Movie_Wiki_Home.framework in Frameworks */,
-				EB07A715230BB09100FAD6DB /* Movie_Wiki_Commons.framework in Frameworks */,
+				EB07A71F230CE41100FAD6DB /* Movie_Wiki_Commons.framework in Frameworks */,
 				943D731634C57426EDAE785D /* Pods_Common_Pods_Movie_Wiki.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,6 +99,8 @@
 			isa = PBXGroup;
 			children = (
 				EB7623E6230BA311006E7E4C /* AppDelegate.swift */,
+				EB07A723230CED6000FAD6DB /* AppCoordinator.swift */,
+				EB07A729230CFCB300FAD6DB /* AppDendencies.swift */,
 				EB7623F8230BA334006E7E4C /* Setup */,
 			);
 			path = "Movie Wiki";
@@ -236,6 +242,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB07A724230CED6000FAD6DB /* AppCoordinator.swift in Sources */,
+				EB07A72A230CFCB300FAD6DB /* AppDendencies.swift in Sources */,
 				EB7623E7230BA311006E7E4C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
