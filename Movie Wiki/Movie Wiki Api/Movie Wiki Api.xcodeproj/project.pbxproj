@@ -9,7 +9,12 @@
 /* Begin PBXBuildFile section */
 		57CE8131AD7FB7E0E2B1490C /* Pods_Common_Pods_Movie_Wiki_Api.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A9BAEFE82DC9BA61220A7F /* Pods_Common_Pods_Movie_Wiki_Api.framework */; };
 		EB7623CE230B8B17006E7E4C /* Movie_Wiki_Api.h in Headers */ = {isa = PBXBuildFile; fileRef = EB7623CC230B8B17006E7E4C /* Movie_Wiki_Api.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EB762410230BA558006E7E4C /* TheMovieDBProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB76240F230BA558006E7E4C /* TheMovieDBProvider.swift */; };
+		EB762410230BA558006E7E4C /* TheMovieDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB76240F230BA558006E7E4C /* TheMovieDb.swift */; };
+		EB9679462311D55700FD4DCE /* MoyaCacheble.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9679452311D55700FD4DCE /* MoyaCacheble.swift */; };
+		EB9679482311D69800FD4DCE /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9679472311D69800FD4DCE /* Repository.swift */; };
+		EBE7BAAC230E2FCE0054B41E /* MoviePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7BAAB230E2FCE0054B41E /* MoviePreview.swift */; };
+		EBE7BAAE230E2FDA0054B41E /* MovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7BAAD230E2FDA0054B41E /* MovieDetails.swift */; };
+		EBE7BAB4230E35A30054B41E /* Movie_Wiki_Commons.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBE7BAB3230E35A30054B41E /* Movie_Wiki_Commons.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,7 +26,12 @@
 		EB7623C9230B8B17006E7E4C /* Movie_Wiki_Api.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Movie_Wiki_Api.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB7623CC230B8B17006E7E4C /* Movie_Wiki_Api.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Movie_Wiki_Api.h; sourceTree = "<group>"; };
 		EB7623CD230B8B17006E7E4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EB76240F230BA558006E7E4C /* TheMovieDBProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMovieDBProvider.swift; sourceTree = "<group>"; };
+		EB76240F230BA558006E7E4C /* TheMovieDb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMovieDb.swift; sourceTree = "<group>"; };
+		EB9679452311D55700FD4DCE /* MoyaCacheble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaCacheble.swift; sourceTree = "<group>"; };
+		EB9679472311D69800FD4DCE /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Repository.swift; path = ../../../../../../../../Applications/Repository.swift; sourceTree = "<group>"; };
+		EBE7BAAB230E2FCE0054B41E /* MoviePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePreview.swift; sourceTree = "<group>"; };
+		EBE7BAAD230E2FDA0054B41E /* MovieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetails.swift; sourceTree = "<group>"; };
+		EBE7BAB3230E35A30054B41E /* Movie_Wiki_Commons.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Movie_Wiki_Commons.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBE7BAB4230E35A30054B41E /* Movie_Wiki_Commons.framework in Frameworks */,
 				57CE8131AD7FB7E0E2B1490C /* Pods_Common_Pods_Movie_Wiki_Api.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -40,6 +51,7 @@
 			isa = PBXGroup;
 			children = (
 				77A9BAEFE82DC9BA61220A7F /* Pods_Common_Pods_Movie_Wiki_Api.framework */,
+				EBE7BAB3230E35A30054B41E /* Movie_Wiki_Commons.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -57,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				EB7623CB230B8B17006E7E4C /* Movie Wiki Api */,
+				EB9679432311D4D300FD4DCE /* New Group */,
 				EB7623CA230B8B17006E7E4C /* Products */,
 				ED06DFD04AEE15CC75203D23 /* Pods */,
 				C8546CB380C8E7A9FBA2318B /* Frameworks */,
@@ -74,6 +87,8 @@
 		EB7623CB230B8B17006E7E4C /* Movie Wiki Api */ = {
 			isa = PBXGroup;
 			children = (
+				EB9679472311D69800FD4DCE /* Repository.swift */,
+				EB9679442311D53300FD4DCE /* Plugins */,
 				EB07A71C230BB7F200FAD6DB /* Setup */,
 				EB76240E230BA533006E7E4C /* Providers */,
 			);
@@ -83,9 +98,42 @@
 		EB76240E230BA533006E7E4C /* Providers */ = {
 			isa = PBXGroup;
 			children = (
-				EB76240F230BA558006E7E4C /* TheMovieDBProvider.swift */,
+				EBE7BAAA230E2F9C0054B41E /* TheMovieDb */,
 			);
 			path = Providers;
+			sourceTree = "<group>";
+		};
+		EB9679432311D4D300FD4DCE /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		EB9679442311D53300FD4DCE /* Plugins */ = {
+			isa = PBXGroup;
+			children = (
+				EB9679452311D55700FD4DCE /* MoyaCacheble.swift */,
+			);
+			path = Plugins;
+			sourceTree = "<group>";
+		};
+		EBE7BAAA230E2F9C0054B41E /* TheMovieDb */ = {
+			isa = PBXGroup;
+			children = (
+				EB76240F230BA558006E7E4C /* TheMovieDb.swift */,
+				EBE7BAAF230E2FDD0054B41E /* Model */,
+			);
+			path = TheMovieDb;
+			sourceTree = "<group>";
+		};
+		EBE7BAAF230E2FDD0054B41E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EBE7BAAB230E2FCE0054B41E /* MoviePreview.swift */,
+				EBE7BAAD230E2FDA0054B41E /* MovieDetails.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		ED06DFD04AEE15CC75203D23 /* Pods */ = {
@@ -205,7 +253,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB762410230BA558006E7E4C /* TheMovieDBProvider.swift in Sources */,
+				EB9679482311D69800FD4DCE /* Repository.swift in Sources */,
+				EB762410230BA558006E7E4C /* TheMovieDb.swift in Sources */,
+				EBE7BAAC230E2FCE0054B41E /* MoviePreview.swift in Sources */,
+				EB9679462311D55700FD4DCE /* MoyaCacheble.swift in Sources */,
+				EBE7BAAE230E2FDA0054B41E /* MovieDetails.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

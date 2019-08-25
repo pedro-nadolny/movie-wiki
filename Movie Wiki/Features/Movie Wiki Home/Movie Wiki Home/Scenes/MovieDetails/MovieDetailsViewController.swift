@@ -1,11 +1,13 @@
 import UIKit
 import Movie_Wiki_Commons
+import Movie_Wiki_Api
+import Moya
 
 class MovieDetailsViewController: BaseViewController {
     let viewModel: MovieDetailsViewModel
     
-    override init() {
-        viewModel = MovieDetailsViewModel()
+    init(provider: MoyaProvider<TheMovieDb>) {
+        viewModel = MovieDetailsViewModel(provider: provider)
         super.init()
     }
     

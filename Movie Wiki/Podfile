@@ -57,6 +57,7 @@ abstract_target 'Common Pods' do
   abstract_target 'Common Feature Pods' do
     swinject
     cartography
+    moya
     
     target 'Movie Wiki Home' do
       project 'Features/Movie Wiki Home/Movie Wiki Home.xcodeproj'

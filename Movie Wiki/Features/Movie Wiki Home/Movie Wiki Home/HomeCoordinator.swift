@@ -13,7 +13,7 @@ public class HomeCoordinator: Coordinator {
     }
     
     public func start() {
-        guard let homeViewController = container.resolve(HomeViewController.self) else { return }
-        navigationController.setViewControllers([homeViewController], animated: false)
+        guard let upcomingViewController = container.resolve(UpcomingViewController.self) else { return }
+        navigationController.setViewControllers([upcomingViewController], animated: false)
     }
 }

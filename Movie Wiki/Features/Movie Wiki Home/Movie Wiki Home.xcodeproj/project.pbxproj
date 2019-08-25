@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		EB07A722230CEB8D00FAD6DB /* HomeDependecies.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB07A721230CEB8C00FAD6DB /* HomeDependecies.swift */; };
-		EB07A725230CF5CA00FAD6DB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB76248C230BAA35006E7E4C /* HomeViewController.swift */; };
-		EB07A726230CF5CA00FAD6DB /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB76248D230BAA35006E7E4C /* HomeViewModel.swift */; };
+		EB07A725230CF5CA00FAD6DB /* UpcomingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB76248C230BAA35006E7E4C /* UpcomingViewController.swift */; };
+		EB07A726230CF5CA00FAD6DB /* UpcomingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB76248D230BAA35006E7E4C /* UpcomingViewModel.swift */; };
 		EB07A727230CF5CA00FAD6DB /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB76248F230BAA35006E7E4C /* MovieDetailsViewController.swift */; };
 		EB07A728230CF5CA00FAD6DB /* MovieDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB762490230BAA35006E7E4C /* MovieDetailsViewModel.swift */; };
+		EB6EE27E2310BDEF002248D6 /* UpcomingMovieCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6EE27D2310BDEF002248D6 /* UpcomingMovieCells.swift */; };
 		EB762485230BA96A006E7E4C /* Movie_Wiki_Home.h in Headers */ = {isa = PBXBuildFile; fileRef = EB762483230BA96A006E7E4C /* Movie_Wiki_Home.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EB762498230BAAC4006E7E4C /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB762497230BAAC4006E7E4C /* HomeCoordinator.swift */; };
 		EB8839E8230BAF9B00AB336C /* Movie_Wiki_Api.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB8839E7230BAF9B00AB336C /* Movie_Wiki_Api.framework */; };
@@ -25,11 +26,12 @@
 		C53466A96DC7F3B62787ADBB /* Pods-Movie Wiki-Common Feature Pods-Movie Wiki Home.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movie Wiki-Common Feature Pods-Movie Wiki Home.debug.xcconfig"; path = "Target Support Files/Pods-Movie Wiki-Common Feature Pods-Movie Wiki Home/Pods-Movie Wiki-Common Feature Pods-Movie Wiki Home.debug.xcconfig"; sourceTree = "<group>"; };
 		E500404242DF506570F2567B /* Pods-Movie Wiki-Common Feature Pods-Movie Wiki Home.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movie Wiki-Common Feature Pods-Movie Wiki Home.release.xcconfig"; path = "Target Support Files/Pods-Movie Wiki-Common Feature Pods-Movie Wiki Home/Pods-Movie Wiki-Common Feature Pods-Movie Wiki Home.release.xcconfig"; sourceTree = "<group>"; };
 		EB07A721230CEB8C00FAD6DB /* HomeDependecies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDependecies.swift; sourceTree = "<group>"; };
+		EB6EE27D2310BDEF002248D6 /* UpcomingMovieCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingMovieCells.swift; sourceTree = "<group>"; };
 		EB762480230BA96A006E7E4C /* Movie_Wiki_Home.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Movie_Wiki_Home.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB762483230BA96A006E7E4C /* Movie_Wiki_Home.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Movie_Wiki_Home.h; sourceTree = "<group>"; };
 		EB762484230BA96A006E7E4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EB76248C230BAA35006E7E4C /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		EB76248D230BAA35006E7E4C /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		EB76248C230BAA35006E7E4C /* UpcomingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingViewController.swift; sourceTree = "<group>"; };
+		EB76248D230BAA35006E7E4C /* UpcomingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingViewModel.swift; sourceTree = "<group>"; };
 		EB76248F230BAA35006E7E4C /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 		EB762490230BAA35006E7E4C /* MovieDetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewModel.swift; sourceTree = "<group>"; };
 		EB762497230BAAC4006E7E4C /* HomeCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
@@ -107,13 +109,14 @@
 			path = "Movie Wiki Home";
 			sourceTree = "<group>";
 		};
-		EB76248E230BAA35006E7E4C /* Home */ = {
+		EB76248E230BAA35006E7E4C /* Upcoming */ = {
 			isa = PBXGroup;
 			children = (
-				EB76248C230BAA35006E7E4C /* HomeViewController.swift */,
-				EB76248D230BAA35006E7E4C /* HomeViewModel.swift */,
+				EB76248C230BAA35006E7E4C /* UpcomingViewController.swift */,
+				EB76248D230BAA35006E7E4C /* UpcomingViewModel.swift */,
+				EB6EE27D2310BDEF002248D6 /* UpcomingMovieCells.swift */,
 			);
-			path = Home;
+			path = Upcoming;
 			sourceTree = "<group>";
 		};
 		EB762491230BAA35006E7E4C /* MovieDetails */ = {
@@ -128,7 +131,7 @@
 		EB762492230BAA35006E7E4C /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				EB76248E230BAA35006E7E4C /* Home */,
+				EB76248E230BAA35006E7E4C /* Upcoming */,
 				EB762491230BAA35006E7E4C /* MovieDetails */,
 			);
 			path = Scenes;
@@ -247,8 +250,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB07A725230CF5CA00FAD6DB /* HomeViewController.swift in Sources */,
-				EB07A726230CF5CA00FAD6DB /* HomeViewModel.swift in Sources */,
+				EB6EE27E2310BDEF002248D6 /* UpcomingMovieCells.swift in Sources */,
+				EB07A725230CF5CA00FAD6DB /* UpcomingViewController.swift in Sources */,
+				EB07A726230CF5CA00FAD6DB /* UpcomingViewModel.swift in Sources */,
 				EB07A727230CF5CA00FAD6DB /* MovieDetailsViewController.swift in Sources */,
 				EB07A728230CF5CA00FAD6DB /* MovieDetailsViewModel.swift in Sources */,
 				EB07A722230CEB8D00FAD6DB /* HomeDependecies.swift in Sources */,
