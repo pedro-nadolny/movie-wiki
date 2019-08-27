@@ -1,6 +1,7 @@
 import UIKit
 import Movie_Wiki_Commons
 import Movie_Wiki_Api
+import Movie_Wiki_Assets
 import Moya
 import Cartography
 
@@ -8,61 +9,71 @@ class MovieDetailsViewController: BaseViewController {
 
     // MARK: - Layout
     let scroll = UIScrollView()
-    let averageLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18)
-        label.textAlignment = .right
-        return label
-    }()
-    let releaseDateLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18)
-        label.textAlignment = .right
-        return label
-    }()
-    let overviewLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18)
-        label.numberOfLines = 0
-        label.textAlignment = .natural
-        return label
-    }()
-    let runtimeLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18)
-        label.textAlignment = .right
-        return label
-    }()
-    let budgetLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18)
-        label.textAlignment = .right
-        return label
-    }()
-    let revenueLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18)
-        label.textAlignment = .right
-        return label
-    }()
-    let genresLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18)
-        label.textAlignment = .right
-        return label
-    }()
+    
     let backdropImageView: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
         return image
     }()
+    
+    let overviewLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 20)
+        label.numberOfLines = 0
+        label.textAlignment = .natural
+        return label
+    }()
+    
+    let averageLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.textAlignment = .right
+        return label
+    }()
+    
+    let releaseDateLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.textAlignment = .right
+        return label
+    }()
+    
+    let runtimeLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.textAlignment = .right
+        return label
+    }()
+    
+    let budgetLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.textAlignment = .right
+        return label
+    }()
+    
+    let revenueLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.textAlignment = .right
+        return label
+    }()
+
+    let genresLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.textAlignment = .right
+        return label
+    }()
+    
     let activityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView()
         indicator.style = .whiteLarge
         indicator.startAnimating()
         return indicator
     }()
+    
     let indicatorContainer: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.black.withAlphaComponent(0.7)
@@ -117,20 +128,31 @@ extension MovieDetailsViewController {
             scroll.edges == scroll.superview!.edges
         }
         
-        constrain(backdropImageView, overviewLabel) { image, overviewLabel in
+        constrain(backdropImageView) { image in
             let superview = image.superview!
-            
             
             image.leading == superview.leading
             image.trailing == superview.trailing
             image.top == superview.top
             image.width == superview.width
-            
-            image.bottom == overviewLabel.top - 16
-            
-            overviewLabel.bottom == superview.bottom
-            overviewLabel.leading == superview.leading + 16
-            overviewLabel.trailing == superview.trailing - 16
+        }
+        
+        let concat: (ViewProxy, ViewProxy) -> () = { first, second in
+            second.top == first.bottom + 16
+            second.leading == second.superview!.leading + 16
+            second.trailing == second.superview!.trailing - 16
+        }
+        
+        constrain(backdropImageView,    overviewLabel,      block: concat)
+        constrain(overviewLabel,        genresLabel,        block: concat)
+        constrain(genresLabel,          runtimeLabel,       block: concat)
+        constrain(runtimeLabel,         releaseDateLabel,   block: concat)
+        constrain(releaseDateLabel,     averageLabel,       block: concat)
+        constrain(averageLabel,         budgetLabel,        block: concat)
+        constrain(budgetLabel,          revenueLabel,       block: concat)
+        
+        constrain(revenueLabel) { label in
+            label.bottom == label.superview!.bottom - 16
         }
     }
     
@@ -148,7 +170,7 @@ extension MovieDetailsViewController {
             .disposed(by: disposeBag)
         
         viewModel.movieRevenue
-            .drive(budgetLabel.rx.text)
+            .drive(revenueLabel.rx.text)
             .disposed(by: disposeBag)
         
         viewModel.movieReleaseDate
@@ -163,10 +185,25 @@ extension MovieDetailsViewController {
             .drive(genresLabel.rx.text)
             .disposed(by: disposeBag)
         
+        viewModel.movieVoteAverage
+            .drive(averageLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.movieRuntime
+            .drive(runtimeLabel.rx.text)
+            .disposed(by: disposeBag)
+        
         viewModel.isLoading
             .map { !$0 }
             .drive(indicatorContainer.rx.isHidden)
             .disposed(by: disposeBag)
+        
+        viewModel.loadingError
+            .drive(onNext: { [weak self] in
+                self?.showAlert (
+                    with: R.string.movieDetails.loadFailAlertTitle(),
+                    and: R.string.movieDetails.loadFailAlertMessage()
+                )
+            }).disposed(by: disposeBag)
     }
 }
-

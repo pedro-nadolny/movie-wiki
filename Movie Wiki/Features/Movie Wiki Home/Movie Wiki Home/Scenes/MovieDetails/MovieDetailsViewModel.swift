@@ -1,6 +1,7 @@
 import Foundation
 import Moya
 import Movie_Wiki_Api
+import Movie_Wiki_Assets
 import RxCocoa
 import RxSwift
 
@@ -20,6 +21,7 @@ class MovieDetailsViewModel {
     let movieVoteAverage: Driver<String?>
     let movieReleaseDate: Driver<String?>
     let movieBackdrop: Driver<UIImage?>
+    let loadingError: Driver<Void>
     
     fileprivate let loadedMovie = PublishSubject<MovieDetails>()
     
@@ -32,16 +34,23 @@ class MovieDetailsViewModel {
             Driver.of(true)
         ).asDriver(onErrorJustReturn: false)
         
+        loadingError = loadedMovie
+            .map { _ in false }
+            .asDriver(onErrorJustReturn: true)
+            .filter { $0 }
+            .map { _ in } 
+        
         movieBudget = loadedMovie
-            .map { "$\($0.budget)" }
+            .map { R.string.movieDetails.budgetPlaceholder(String($0.budget)) }
             .asDriver(onErrorJustReturn: nil)
         
         movieRevenue = loadedMovie
-            .map { "$\($0.revenue)" }
+            .map { R.string.movieDetails.revenuePlaceholder(String($0.revenue)) }
             .asDriver(onErrorJustReturn: nil)
+            .debug()
         
         movieTitle = loadedMovie
-            .map { $0.title }
+            .map { R.string.movieDetails.titlePlaceholder($0.title) }
             .asDriver(onErrorJustReturn: nil)
         
         movieOverview = loadedMovie
@@ -49,15 +58,16 @@ class MovieDetailsViewModel {
             .asDriver(onErrorJustReturn: nil)
         
         movieRuntime = loadedMovie
-            .map { "\($0.runtime) minutes" }
+            .map { R.string.movieDetails.runtimePlaceholder(String($0.runtime)) }
             .asDriver(onErrorJustReturn: nil)
         
         movieVoteAverage = loadedMovie
-            .map { "Votes: \($0.voteAverage)" }
+            .map { R.string.movieDetails.averagePlaceholder(String($0.voteAverage)) }
             .asDriver(onErrorJustReturn: nil)
         
         movieReleaseDate = loadedMovie
             .map { DateFormatter.yyyyMMdd.string(from: $0.releaseDate) }
+            .map { R.string.movieDetails.releasePlaceholder($0) }
             .asDriver(onErrorJustReturn: nil)
         
         movieGenres = loadedMovie
@@ -65,7 +75,11 @@ class MovieDetailsViewModel {
             .map { $0.name }
             .reduce( nil as String? ) { result, value in
                 guard let result = result else { return value }
-                return result + ", " + value
+                return R.string.movieDetails.commaSeparation(result, value)
+            }
+            .map { movieGenres in
+                guard let movieGenres = movieGenres else { return nil }
+                return R.string.movieDetails.genresPlaceholder(movieGenres)
             }
             .asDriver(onErrorJustReturn: nil)
         
@@ -86,7 +100,6 @@ extension MovieDetailsViewModel {
             .asObservable()
             .flatMap { self.provider.rx.request(.getMovie(id: $0)) }
             .map(MovieDetails.self, using: TheMovieDb.getMovie(id: 0).jsonDecoder, failsOnEmptyData: true)
-            .debug()
             .bind(to: loadedMovie)
             .disposed(by: disposeBag)
     }
