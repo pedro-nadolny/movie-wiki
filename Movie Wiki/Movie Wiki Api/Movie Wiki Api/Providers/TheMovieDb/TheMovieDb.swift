@@ -40,7 +40,7 @@ extension TheMovieDb: TargetType {
     
     public var task: Task {
         switch self {
-        case .getPoster, .getMovie:
+        case .getPoster, .getBackdrop:
             return .requestPlain
         
         default:
@@ -69,9 +69,6 @@ extension TheMovieDb: TargetType {
         switch self {
         case .getUpcomingMovies(let page):
             parameters["page"] = page
-            
-        case .getMovie(let id):
-            parameters["movie_id"] = id
             
         default: break
         }

@@ -20,6 +20,7 @@ class AppCoordinator: Coordinator {
         else { return }
         
         homeCoordinator.start()
+        addChildCoordinator(homeCoordinator)
         window.rootViewController = homeCoordinator.navigationController
         window.makeKeyAndVisible()
     }

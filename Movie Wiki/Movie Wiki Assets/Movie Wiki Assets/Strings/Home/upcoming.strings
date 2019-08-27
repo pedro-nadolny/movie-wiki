@@ -7,3 +7,6 @@
 */
 
 "screenTitle" = "The Movie Wiki";
+"searchBarPlaceholder" = "Search Movies";
+"noMoviesAlertTitle" = "No movies to show at the moment.";
+"noMoviesAlertDescription" = "Please, make sure you have an stable internet connection!";

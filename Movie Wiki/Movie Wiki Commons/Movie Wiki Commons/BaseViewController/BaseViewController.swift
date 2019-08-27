@@ -12,7 +12,7 @@ open class BaseViewController: UIViewController {
         super.init(coder: aDecoder)
     }
     
-    func showAlert(with title: String?, and message: String?) {
+    public func showAlert(with title: String?, and message: String?) {
         showAlertController(with: title, message: message, and: .alert)
     }
     

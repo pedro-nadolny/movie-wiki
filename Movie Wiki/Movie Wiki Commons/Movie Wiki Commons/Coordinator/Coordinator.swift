@@ -7,7 +7,7 @@ public protocol Coordinator: class {
     func start()
 }
 
-extension Coordinator {
+public extension Coordinator {
     func addChildCoordinator(_ coordinator: Coordinator) {
         childCoordinators.append(coordinator)
     }

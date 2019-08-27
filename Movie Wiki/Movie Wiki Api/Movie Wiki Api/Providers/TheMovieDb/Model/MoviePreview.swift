@@ -27,3 +27,9 @@ public struct MoviePreview: Decodable {
         }
     }
 }
+
+extension MoviePreview: Equatable {
+    public static func == (lhs: MoviePreview, rhs: MoviePreview) -> Bool {
+        return lhs.id == rhs.id
+    }
+}

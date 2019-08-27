@@ -13,26 +13,24 @@ class UpcomingMovieCell: UITableViewCell {
     // MARK: - Layout
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = R.font.robotoItalic(size: 30)
+        label.font = UIFont.systemFont(ofSize: 28)
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 0
-        label.textColor = .white
         label.textAlignment = .right
         return label
     }()
     
     let averageLabel: UILabel = {
         let label = UILabel()
-        label.font = R.font.robotoBold(size: 14)
-        label.textColor = .white
+        label.font = UIFont.systemFont(ofSize: 20)
         label.textAlignment = .right
         return label
     }()
     
     let releaseDateLabel: UILabel = {
         let label = UILabel()
-        label.font = R.font.robotoBold(size: 11)
-        label.textColor = .white
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
         label.textAlignment = .right
         return label
     }()
@@ -43,18 +41,19 @@ class UpcomingMovieCell: UITableViewCell {
         image.clipsToBounds = true
         return image
     }()
-    
-    let posterFadeView: GradientView = {
-        let view = GradientView()
-        view.colors = [.clear, .black]
+
+    let container: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 8
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
+        view.clipsToBounds = true
         return view
     }()
     
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.backgroundColor = .black
-        selectionStyle = .none
         setupUI()
     }
     
@@ -74,7 +73,6 @@ extension UpcomingMovieCell {
         titleLabel.text = moviePreview.title
         averageLabel.text = String(moviePreview.voteAverage)
         releaseDateLabel.text = DateFormatter.yyyyMMdd.string(from: moviePreview.releaseDate)
-        
         image.drive(posterImageView.rx.image).disposed(by: disposeBag)
     }
 }
@@ -82,29 +80,34 @@ extension UpcomingMovieCell {
 // MARK: - Private Methods
 extension UpcomingMovieCell {
     fileprivate func setupUI() {
-        contentView.addSubview(posterImageView)
-        contentView.addSubview(titleLabel)
-        contentView.addSubview(releaseDateLabel)
-        contentView.addSubview(averageLabel)
-        contentView.addSubview(posterFadeView)
+        contentView.addSubview(container)
+        container.addSubview(posterImageView)
+        container.addSubview(titleLabel)
+        container.addSubview(releaseDateLabel)
+        container.addSubview(averageLabel)
         
-        constrain(posterImageView, titleLabel, posterFadeView) { posterImageView, titleLabel, posterFadeView in
+        constrain(container) { container in
+            container.edges == container.superview!.edges.inseted (
+                top: 16,
+                leading: 16,
+                bottom: 0,
+                trailing: 16
+            )
+        }
+        
+        constrain(posterImageView, titleLabel) { posterImageView, titleLabel in
             let superview = posterImageView.superview!
+            let posterAspect: CGFloat = 16.0 / 9.0
             
             posterImageView.leading == superview.leading
             posterImageView.top == superview.top
             posterImageView.bottom == superview.bottom
             posterImageView.width == 154
-            posterImageView.height == 274
+            posterImageView.height == posterImageView.width * posterAspect
             
             titleLabel.trailing == superview.trailing - 8
             titleLabel.top == superview.top + 8
             titleLabel.leading >= posterImageView.trailing + 8
-            
-            posterFadeView.trailing == posterImageView.trailing
-            posterFadeView.width == 30
-            posterFadeView.bottom == posterImageView.bottom
-            posterFadeView.top == posterImageView.top
         }
         
         constrain(titleLabel, averageLabel, releaseDateLabel) { titleLabel, averageLabel, releaseDateLabel in

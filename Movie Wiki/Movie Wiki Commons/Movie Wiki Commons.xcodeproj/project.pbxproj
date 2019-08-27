@@ -11,7 +11,6 @@
 		EB762436230BA659006E7E4C /* Movie_Wiki_Commons.h in Headers */ = {isa = PBXBuildFile; fileRef = EB762434230BA659006E7E4C /* Movie_Wiki_Commons.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EB76243D230BA690006E7E4C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB76243C230BA690006E7E4C /* Coordinator.swift */; };
 		EB76245B230BA762006E7E4C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB76245A230BA762006E7E4C /* BaseViewController.swift */; };
-		EB9679672312323300FD4DCE /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9679662312323300FD4DCE /* GradientView.swift */; };
 		EBE7BAB2230E351D0054B41E /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7BAB1230E351D0054B41E /* DateFormatter+Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,7 +24,6 @@
 		EB762435230BA659006E7E4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB76243C230BA690006E7E4C /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		EB76245A230BA762006E7E4C /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		EB9679662312323300FD4DCE /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		EBE7BAB1230E351D0054B41E /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
 		F6E3177757A821BA659C368F /* Pods-Movie Wiki-Movie Wiki Commons.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movie Wiki-Movie Wiki Commons.release.xcconfig"; path = "Target Support Files/Pods-Movie Wiki-Movie Wiki Commons/Pods-Movie Wiki-Movie Wiki Commons.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,7 +82,6 @@
 		EB762433230BA659006E7E4C /* Movie Wiki Commons */ = {
 			isa = PBXGroup;
 			children = (
-				EB9679682312324900FD4DCE /* Views */,
 				EBE7BAB0230E350E0054B41E /* Extensions */,
 				EB8839E9230BAFAF00AB336C /* Coordinator */,
 				EB8839EA230BAFB600AB336C /* BaseViewController */,
@@ -107,14 +104,6 @@
 				EB76245A230BA762006E7E4C /* BaseViewController.swift */,
 			);
 			path = BaseViewController;
-			sourceTree = "<group>";
-		};
-		EB9679682312324900FD4DCE /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				EB9679662312323300FD4DCE /* GradientView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		EBE7BAB0230E350E0054B41E /* Extensions */ = {
@@ -239,7 +228,6 @@
 			files = (
 				EB76243D230BA690006E7E4C /* Coordinator.swift in Sources */,
 				EBE7BAB2230E351D0054B41E /* DateFormatter+Extension.swift in Sources */,
-				EB9679672312323300FD4DCE /* GradientView.swift in Sources */,
 				EB76245B230BA762006E7E4C /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

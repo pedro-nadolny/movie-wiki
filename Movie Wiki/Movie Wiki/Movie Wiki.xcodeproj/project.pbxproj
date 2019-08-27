@@ -17,6 +17,8 @@
 		EB7623E7230BA311006E7E4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7623E6230BA311006E7E4C /* AppDelegate.swift */; };
 		EB7623EE230BA312006E7E4C /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB7623ED230BA312006E7E4C /* AppIcon.xcassets */; };
 		EB7623F1230BA312006E7E4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB7623EF230BA312006E7E4C /* LaunchScreen.storyboard */; };
+		EB96796A23131C0600FD4DCE /* Movie_Wiki_Assets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB96796923131C0600FD4DCE /* Movie_Wiki_Assets.framework */; };
+		EB96796B23131C0600FD4DCE /* Movie_Wiki_Assets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB96796923131C0600FD4DCE /* Movie_Wiki_Assets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +30,7 @@
 			files = (
 				EB07A720230CE41100FAD6DB /* Movie_Wiki_Commons.framework in Embed Frameworks */,
 				EB07A712230BB08400FAD6DB /* Movie_Wiki_Home.framework in Embed Frameworks */,
+				EB96796B23131C0600FD4DCE /* Movie_Wiki_Assets.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -49,6 +52,7 @@
 		EB7623ED230BA312006E7E4C /* AppIcon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIcon.xcassets; sourceTree = "<group>"; };
 		EB7623F0230BA312006E7E4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB7623F2230BA312006E7E4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB96796923131C0600FD4DCE /* Movie_Wiki_Assets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Movie_Wiki_Assets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB96796A23131C0600FD4DCE /* Movie_Wiki_Assets.framework in Frameworks */,
 				EB07A711230BB08400FAD6DB /* Movie_Wiki_Home.framework in Frameworks */,
 				EB07A71F230CE41100FAD6DB /* Movie_Wiki_Commons.framework in Frameworks */,
 				943D731634C57426EDAE785D /* Pods_Common_Pods_Movie_Wiki.framework in Frameworks */,
@@ -119,6 +124,7 @@
 		EB76245C230BA7E4006E7E4C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EB96796923131C0600FD4DCE /* Movie_Wiki_Assets.framework */,
 				EB07A714230BB09100FAD6DB /* Movie_Wiki_Commons.framework */,
 				EB07A710230BB08400FAD6DB /* Movie_Wiki_Home.framework */,
 				207FF9A2ED2F9E2FB8DDB8CF /* Pods_Common_Pods_Movie_Wiki.framework */,

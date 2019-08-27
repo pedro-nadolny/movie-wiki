@@ -9,18 +9,46 @@ import Cartography
 
 class UpcomingViewController: BaseViewController {
     let viewModel: UpcomingViewModel
-    let button = UIButton()
     
     let tableView: UITableView = {
         let tableView = UITableView()
         tableView.showsVerticalScrollIndicator = false
-        tableView.backgroundColor = .black
-        tableView.separatorInset = .zero
+        tableView.separatorStyle = .none
+        tableView.contentInset.bottom = 16
+        
+        let cell = UpcomingMovieCell.self
+        tableView.register(cell, forCellReuseIdentifier: cell.description())
         return tableView
     }()
     
+    let activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView()
+        indicator.style = .whiteLarge
+        indicator.startAnimating()
+        return indicator
+    }()
+    
+    let indicatorContainer: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.7)
+        view.layer.cornerRadius = 8
+        return view
+    }()
+    
+    let searchController = UISearchController(searchResultsController: nil)
+    
     init(provider: MoyaProvider<TheMovieDb>) {
-        viewModel = UpcomingViewModel(provider: provider)
+        let cellDisplayed = tableView.rx
+            .didEndDisplayingCell
+            .map { $1.row }
+            .asDriver(onErrorJustReturn: 0)
+        
+        let cellSelected = tableView.rx
+            .itemSelected
+            .map { $0.row }
+            .asDriver(onErrorJustReturn: -1)
+        
+        viewModel = UpcomingViewModel(provider, cellDisplayed, cellSelected)
         super.init()
     }
     
@@ -36,6 +64,7 @@ extension UpcomingViewController {
         
         setupUI()
         setupBindings()
+        viewModel.loadNextPage.onNext(())
     }
 }
 
@@ -43,34 +72,58 @@ extension UpcomingViewController {
 extension UpcomingViewController {
     fileprivate func setupUI() {
         view.addSubview(tableView)
-        button.setTitle("Load more", for: .normal)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
+        view.addSubview(indicatorContainer)
+        indicatorContainer.addSubview(activityIndicator)
 
         constrain(tableView) { tableView in
             tableView.edges == tableView.superview!.edges
         }
         
-        view.backgroundColor = .black
+        constrain(activityIndicator, indicatorContainer) { indicator, container in
+            container.center == container.superview!.center
+            indicator.edges == container.edges.inseted(by: 16)
+        }
+        
+        if #available(iOS 11.0, *) {
+            navigationItem.searchController = searchController
+            navigationItem.hidesSearchBarWhenScrolling = false
+        } else {
+            navigationItem.titleView = searchController.searchBar
+        }
+        
+        if #available(iOS 9.1, *) {
+            searchController.obscuresBackgroundDuringPresentation = false
+        }
+        
+        searchController.searchBar.placeholder = R.string.upcoming.searchBarPlaceholder()
     }
     
     fileprivate func setupBindings() {
-        setupTableView()
-        
-        button.rx.tap
-            .bind(to: viewModel.loadNextPage)
+        searchController.searchBar.rx
+            .text
+            .bind(to: viewModel.searchText)
             .disposed(by: disposeBag)
-    }
-    
-    fileprivate func setupTableView() {
-        let cell = UpcomingMovieCell.self
-        tableView.register(cell, forCellReuseIdentifier: cell.description())
         
-        viewModel
-            .moviesPreviews
+        viewModel.isLoading
+            .map { !$0 }
+            .drive(indicatorContainer.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        let cell = UpcomingMovieCell.self
+        
+        viewModel.moviesPreviews
             .drive(tableView.rx.items(cellIdentifier: cell.description(), cellType: cell)) { [weak self] _, item, cell in
                 guard let self = self else { return }
                 cell.configure(with: item, image: self.viewModel.posterDriver(for: item))
-            }
+            }.disposed(by: disposeBag)
+        
+        viewModel.noMoviesFounds
+            .drive(onNext: { [weak self] _ in
+                self?.showAlert (
+                    with: R.string.upcoming.noMoviesAlertTitle(),
+                    and: R.string.upcoming.noMoviesAlertDescription()
+                )
+            })
             .disposed(by: disposeBag)
     }
 }

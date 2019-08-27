@@ -69,7 +69,6 @@
 			isa = PBXGroup;
 			children = (
 				EB7623CB230B8B17006E7E4C /* Movie Wiki Api */,
-				EB9679432311D4D300FD4DCE /* New Group */,
 				EB7623CA230B8B17006E7E4C /* Products */,
 				ED06DFD04AEE15CC75203D23 /* Pods */,
 				C8546CB380C8E7A9FBA2318B /* Frameworks */,
@@ -101,13 +100,6 @@
 				EBE7BAAA230E2F9C0054B41E /* TheMovieDb */,
 			);
 			path = Providers;
-			sourceTree = "<group>";
-		};
-		EB9679432311D4D300FD4DCE /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		EB9679442311D53300FD4DCE /* Plugins */ = {
