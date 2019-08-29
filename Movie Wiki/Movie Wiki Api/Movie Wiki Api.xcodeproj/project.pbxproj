@@ -11,7 +11,7 @@
 		EB7623CE230B8B17006E7E4C /* Movie_Wiki_Api.h in Headers */ = {isa = PBXBuildFile; fileRef = EB7623CC230B8B17006E7E4C /* Movie_Wiki_Api.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EB762410230BA558006E7E4C /* TheMovieDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB76240F230BA558006E7E4C /* TheMovieDb.swift */; };
 		EB9679462311D55700FD4DCE /* MoyaCacheble.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9679452311D55700FD4DCE /* MoyaCacheble.swift */; };
-		EB9679482311D69800FD4DCE /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9679472311D69800FD4DCE /* Repository.swift */; };
+		EBD0429523174F85001FCA55 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD0429423174F85001FCA55 /* Repository.swift */; };
 		EBE7BAAC230E2FCE0054B41E /* MoviePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7BAAB230E2FCE0054B41E /* MoviePreview.swift */; };
 		EBE7BAAE230E2FDA0054B41E /* MovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7BAAD230E2FDA0054B41E /* MovieDetails.swift */; };
 		EBE7BAB4230E35A30054B41E /* Movie_Wiki_Commons.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBE7BAB3230E35A30054B41E /* Movie_Wiki_Commons.framework */; };
@@ -28,7 +28,7 @@
 		EB7623CD230B8B17006E7E4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB76240F230BA558006E7E4C /* TheMovieDb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMovieDb.swift; sourceTree = "<group>"; };
 		EB9679452311D55700FD4DCE /* MoyaCacheble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaCacheble.swift; sourceTree = "<group>"; };
-		EB9679472311D69800FD4DCE /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Repository.swift; path = ../../../../../../../../Applications/Repository.swift; sourceTree = "<group>"; };
+		EBD0429423174F85001FCA55 /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		EBE7BAAB230E2FCE0054B41E /* MoviePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePreview.swift; sourceTree = "<group>"; };
 		EBE7BAAD230E2FDA0054B41E /* MovieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetails.swift; sourceTree = "<group>"; };
 		EBE7BAB3230E35A30054B41E /* Movie_Wiki_Commons.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Movie_Wiki_Commons.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,7 +86,7 @@
 		EB7623CB230B8B17006E7E4C /* Movie Wiki Api */ = {
 			isa = PBXGroup;
 			children = (
-				EB9679472311D69800FD4DCE /* Repository.swift */,
+				EBD0429423174F85001FCA55 /* Repository.swift */,
 				EB9679442311D53300FD4DCE /* Plugins */,
 				EB07A71C230BB7F200FAD6DB /* Setup */,
 				EB76240E230BA533006E7E4C /* Providers */,
@@ -245,9 +245,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB9679482311D69800FD4DCE /* Repository.swift in Sources */,
 				EB762410230BA558006E7E4C /* TheMovieDb.swift in Sources */,
 				EBE7BAAC230E2FCE0054B41E /* MoviePreview.swift in Sources */,
+				EBD0429523174F85001FCA55 /* Repository.swift in Sources */,
 				EB9679462311D55700FD4DCE /* MoyaCacheble.swift in Sources */,
 				EBE7BAAE230E2FDA0054B41E /* MovieDetails.swift in Sources */,
 			);
