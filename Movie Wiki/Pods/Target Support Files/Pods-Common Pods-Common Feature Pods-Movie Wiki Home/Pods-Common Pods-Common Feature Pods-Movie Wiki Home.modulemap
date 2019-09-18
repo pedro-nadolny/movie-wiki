@@ -1,0 +1,6 @@
+framework module Pods_Common_Pods_Common_Feature_Pods_Movie_Wiki_Home {
+  umbrella header "Pods-Common Pods-Common Feature Pods-Movie Wiki Home-umbrella.h"
+
+  export *
+  module * { export * }
+}

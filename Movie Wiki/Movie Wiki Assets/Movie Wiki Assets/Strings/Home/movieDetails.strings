@@ -1,0 +1,19 @@
+/* 
+  movieDetails.strings
+  Movie Wiki Assets
+
+  Created by Pedro on 27/08/19.
+  Copyright © 2019 Pedro. All rights reserved.
+*/
+
+"runtimePlaceholder" = "%@ minutos ⏱";
+"revenuePlaceholder" = "$%@ 🤑";
+"budgetPlaceholder" = "$%@ 💸";
+"averagePlaceholder" = "%@ ⭐️";
+"titlePlaceholder" = "%@ 🎬";
+"releasePlaceholder" = "%@ 🗓";
+"genresPlaceholder" = "Genres: %@";
+"commaSeparation" = "%@, %@";
+
+"loadFailAlertTitle" = "Unable to load movie.";
+"loadFailAlertMessage" = "Please, check if you have a stable internet connection!";

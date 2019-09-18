@@ -1,0 +1,66 @@
+platform :ios, '9.0'
+workspace 'Movie Wiki.xcworkspace'
+
+def rswift
+  pod 'R.swift'
+end
+
+def rxswift
+  pod 'RxSwift', '~> 4'
+  pod 'RxCocoa', '~> 4'
+end
+
+def moya
+  pod 'Moya/RxSwift', '~> 13.0'
+end
+
+def swinject
+  pod 'Swinject'
+end
+
+def cartography
+  pod 'Cartography', '~> 3.0'
+end
+
+def allpods
+  rswift
+  rxswift
+  moya
+  cartography
+  swinject
+end
+
+abstract_target 'Common Pods' do
+  use_frameworks!
+  rxswift
+  
+  target 'Movie Wiki' do
+    project 'Movie Wiki/Movie Wiki.xcodeproj'
+    allpods
+  end
+  
+  target 'Movie Wiki Commons' do
+    project 'Movie Wiki Commons/Movie Wiki Commons.xcodeproj'
+    swinject
+  end
+  
+  target 'Movie Wiki Assets' do
+    project 'Movie Wiki Assets/Movie Wiki Assets.xcodeproj'
+    rswift
+  end
+  
+  target 'Movie Wiki Api' do
+    project 'Movie Wiki Api/Movie Wiki Api.xcodeproj'
+    moya
+  end
+  
+  abstract_target 'Common Feature Pods' do
+    swinject
+    cartography
+    moya
+    
+    target 'Movie Wiki Home' do
+      project 'Features/Movie Wiki Home/Movie Wiki Home.xcodeproj'
+    end
+  end
+end

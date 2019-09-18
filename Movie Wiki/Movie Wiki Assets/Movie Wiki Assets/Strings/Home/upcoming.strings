@@ -1,0 +1,12 @@
+/* 
+  upcoming.strings
+  Movie Wiki Assets
+
+  Created by Pedro on 24/08/19.
+  Copyright © 2019 Pedro. All rights reserved.
+*/
+
+"screenTitle" = "The Movie Wiki";
+"searchBarPlaceholder" = "Search Movies";
+"noMoviesAlertTitle" = "No movies to show at the moment.";
+"noMoviesAlertDescription" = "Please, make sure you have an stable internet connection!";
