@@ -12,6 +12,7 @@
 		EB07A71B230BB2D100FAD6DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB07A71A230BB2D100FAD6DB /* Assets.xcassets */; };
 		EB762454230BA6E7006E7E4C /* Movie_Wiki_Assets.h in Headers */ = {isa = PBXBuildFile; fileRef = EB762452230BA6E7006E7E4C /* Movie_Wiki_Assets.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EB96794B2311DA0300FD4DCE /* upcoming.strings in Resources */ = {isa = PBXBuildFile; fileRef = EB96794A2311DA0300FD4DCE /* upcoming.strings */; };
+		EBE220512314E6950030FBF4 /* movieDetails.strings in Resources */ = {isa = PBXBuildFile; fileRef = EBE220502314E6950030FBF4 /* movieDetails.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		EB762452230BA6E7006E7E4C /* Movie_Wiki_Assets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Movie_Wiki_Assets.h; sourceTree = "<group>"; };
 		EB762453230BA6E7006E7E4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB96794A2311DA0300FD4DCE /* upcoming.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = upcoming.strings; sourceTree = "<group>"; };
+		EBE220502314E6950030FBF4 /* movieDetails.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = movieDetails.strings; sourceTree = "<group>"; };
 		EE0591CB42F05182BDC3F7BE /* Pods-Movie Wiki-Movie Wiki Assets.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movie Wiki-Movie Wiki Assets.debug.xcconfig"; path = "Target Support Files/Pods-Movie Wiki-Movie Wiki Assets/Pods-Movie Wiki-Movie Wiki Assets.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				EB96794A2311DA0300FD4DCE /* upcoming.strings */,
+				EBE220502314E6950030FBF4 /* movieDetails.strings */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB96794B2311DA0300FD4DCE /* upcoming.strings in Resources */,
+				EBE220512314E6950030FBF4 /* movieDetails.strings in Resources */,
 				EB07A71B230BB2D100FAD6DB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

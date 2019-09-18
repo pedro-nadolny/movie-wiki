@@ -90,3 +90,14 @@ extension TheMovieDb: TargetType {
         return decoder
     }
 }
+
+extension TheMovieDb: MoyaCacheable {
+    var cachePolicy: MoyaCacheablePolicy {
+        switch self {
+        case .getBackdrop, .getPoster:
+            return .returnCacheDataElseLoad
+        default:
+            return .reloadIgnoringLocalAndRemoteCacheData
+        }
+    }
+}
