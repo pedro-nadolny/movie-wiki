@@ -6,7 +6,7 @@
 [subrepo]
 	remote = https://github.com/pedroroberto/SubrepoDemo
 	branch = master
-	commit = 3911f17b400550fe8b42b9740c42171dda8a642e
-	parent = 2d20d766548e499dfac6bd74f558567f6357ad1e
+	commit = e110dafc42870aa66001fbd8698d9b37ac0e8685
+	parent = 70efa7880527c3999ddcdd531dad85adf2fd56d2
 	method = merge
 	cmdver = 0.4.0
