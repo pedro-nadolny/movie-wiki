@@ -1,0 +1,3 @@
+[submodule "Superepo"]
+	path = Superepo
+	url = https://github.com/pedroroberto/Superepo
